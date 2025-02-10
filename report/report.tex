@@ -1,0 +1,86 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{Artificial Intelligence Project Report}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This report provides an overview of the project conducted in the Artificial Intelligence course. The project focuses on [brief description of the project].
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+Provide an introduction to the project, including the objectives and the significance of the project.
+
+\section{Background}
+Discuss the background information and related work that is relevant to the project.
+
+\section{Methodology}
+Describe the methods and techniques used in the project. Include any algorithms, models, or tools that were utilized.
+
+\subsection{Minimax Algorithm}
+The Minimax algorithm is a decision-making algorithm used in artificial intelligence, particularly in game theory and two-player games such as chess, tic-tac-toe, and checkers. The algorithm aims to minimize the possible loss for a worst-case scenario. When dealing with gains, it is referred to as "maximin"—to maximize the minimum gain.
+
+The Minimax algorithm operates by simulating all possible moves in a game and their subsequent outcomes, assuming that both players play optimally. The algorithm consists of the following steps:
+
+1. **Generate the Game Tree**: Create a tree structure where each node represents a game state, and each edge represents a possible move by a player.
+
+2. **Evaluate Terminal States**: Assign a value to each terminal state (leaf node) based on the outcome of the game (win, lose, draw).
+
+3. **Backpropagate Values**: Starting from the terminal states, propagate the values back up the tree. For each non-terminal node:
+   - If it is the maximizing player's turn, assign the maximum value of its children.
+   - If it is the minimizing player's turn, assign the minimum value of its children.
+
+4. **Choose the Optimal Move**: At the root node, the maximizing player chooses the move that leads to the child node with the highest value.
+
+The Minimax algorithm can be enhanced with alpha-beta pruning, which reduces the number of nodes evaluated in the game tree by eliminating branches that cannot influence the final decision.
+
+Here is a pseudocode representation of the Minimax algorithm:
+
+\begin{verbatim}
+function minimax(node, depth, maximizingPlayer):
+    if depth == 0 or node is a terminal node:
+        return the heuristic value of node
+
+    if maximizingPlayer:
+        maxEval = -inf
+        for each child of node:
+            eval = minimax(child, depth - 1, false)
+            maxEval = max(maxEval, eval)
+        return maxEval
+    else:
+        minEval = +inf
+        for each child of node:
+            eval = minimax(child, depth - 1, true)
+            minEval = min(minEval, eval)
+        return minEval
+\end{verbatim}
+
+In this project, the Minimax algorithm was implemented to [describe the specific application of the algorithm in your project, e.g., solve a game, make decisions, etc.]. The algorithm was tested and evaluated based on [describe the evaluation criteria and results].
+
+\section{Results}
+Present the results of the project. Include any data, graphs, or figures that help to illustrate the findings.
+
+\section{Discussion}
+Interpret the results and discuss their implications. Mention any limitations of the study and potential areas for future work.
+
+\section{Conclusion}
+Summarize the key findings of the project and their significance.
+
+\section{References}
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

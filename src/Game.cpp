@@ -1,8 +1,24 @@
 #include "Game.h"
 #include <iostream>
+#include <filesystem>
+#include <limits.h>
+#include <unistd.h>
+
+std::string getExecutablePath() {
+    char result[PATH_MAX];
+    ssize_t count = readlink("/proc/self/exe", result, PATH_MAX);
+    return std::string(result, (count > 0) ? count : 0);
+}
+
+std::string getAssetsPath() {
+    std::string exePath = getExecutablePath();
+    std::filesystem::path path(exePath);
+    return path.parent_path().parent_path().string() + "/assets/";
+}
+
 
 Game::Game(int boardSize, int timeLimit, bool startWithWhite) : window(sf::VideoMode(800, 800), "Othello"), board(), ai(), isPlayerTurn(true), gameState(GameState::StartMenu), boardSize(8), playerScore(0), aiScore(0), validMoves(0), timeLimit(200), startWithWhite(true) {
-    if (!font.loadFromFile("../../assets/fonts/Cave-Story.ttf")) {
+    if (!font.loadFromFile(getAssetsPath() + "fonts/Cave-Story.ttf")) {
         std::cerr << "Failed to load font 'Cave-Story.ttf'" << std::endl;
         exit(EXIT_FAILURE);
     }
@@ -80,7 +96,7 @@ void Game::processEvents() {
     sf::Event event;
     while (window.pollEvent(event)) {
         switch (event.type) {
-             case sf::Event::MouseMoved:
+            case sf::Event::MouseMoved:
                     updateMenuHover(event.mouseMove.x, event.mouseMove.y); // Call the hover update method
             case sf::Event::KeyPressed:
                 handlePlayerInput(event.key.code, true);

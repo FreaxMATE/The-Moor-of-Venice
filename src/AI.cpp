@@ -75,12 +75,35 @@ int AI::minimax(Board &board, int depth, bool isMaximizing, int alpha, int beta,
 }
 
 int AI::evaluateBoard(const Board &board) {
+    static const int heuristic_8[8][8] = {
+        { 410,  23,  13,   8,   8,  13,  23, 410 },
+        {  23, -75, -22, -51, -51, -22, -75,  23 },
+        {  13, -22,  41,   3,   3,  41, -22,  13 },
+        {   8, -51,   3, -87, -87,   3, -51,   8 },
+        {   8, -51,   3, -87, -87,   3, -51,   8 },
+        {  13, -22,  41,   3,   3,  41, -22,  13 },
+        {  23, -75, -22, -51, -51, -22, -75,  23 },
+        { 410,  23,  13,   8,   8,  13,  23, 410 }
+    };
+
     int score = 0;
-    for (int x = 0; x < board.getWidth(); ++x) {
-        for (int y = 0; y < board.getHeight(); ++y) {
-            score += board.getCell(x, y);
+    int width = board.getWidth();
+    int height = board.getHeight();
+
+    if (width == 8 && height == 8) {
+        for (int x = 0; x < width; ++x) {
+            for (int y = 0; y < height; ++y) {
+                score += board.getCell(x, y) * heuristic_8[x][y];
+            }
+        }
+    } else {
+        for (int x = 0; x < width; ++x) {
+            for (int y = 0; y < height; ++y) {
+                score += board.getCell(x, y);
+            }
         }
     }
+
     return score;
 }
 

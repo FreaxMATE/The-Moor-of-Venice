@@ -1,0 +1,184 @@
+{
+	"inputs" : 
+	[
+		{
+			"path" : "CMakeLists.txt"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/3.30.5/CMakeSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/Platform/Linux-Initialize.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/3.30.5/CMakeCCompiler.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/CMakeGenericSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/Platform/Linux.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/Platform/UnixPaths.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/CMakeCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/Compiler/GNU-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/Platform/Linux-GNU-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/Platform/Linux-GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/CMakeCXXInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/Compiler/GNU-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/Platform/Linux-GNU-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/Platform/Linux-GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/lib/cmake/SFML/SFMLConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/lib/cmake/SFML/SFMLConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/lib/cmake/SFML/SFMLSharedTargets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/lib/cmake/SFML/SFMLSharedTargets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/lib/cmake/SFML/SFMLConfigDependencies.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/InstallRequiredSystemLibraries.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/CPack.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Modules/CPackComponent.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Templates/CPackConfig.cmake.in"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/share/cmake-3.30/Templates/CPackConfig.cmake.in"
+		}
+	],
+	"kind" : "cmakeFiles",
+	"paths" : 
+	{
+		"build" : "/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build",
+		"source" : "/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy"
+	},
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 1
+	}
+}

@@ -20,6 +20,8 @@
         gdb
         cmake
         sfml
+        meson
+        pkg-config
       ];
     };
   };

@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <cstring>
 
+
 void printHelp() {
     std::cout << "Usage: game [options]\n"
               << "Options:\n"
