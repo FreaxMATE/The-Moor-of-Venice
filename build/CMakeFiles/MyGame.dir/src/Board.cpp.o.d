@@ -1,7 +1,7 @@
 CMakeFiles/MyGame.dir/src/Board.cpp.o: \
- /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/Board.cpp \
+ /home/kunruh/src/The-Moor-of-Venice/src/Board.cpp \
  /nix/store/lcxvgkg659vbvdq86mhxa599wn48f35c-glibc-2.40-36-dev/include/stdc-predef.h \
- /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/include/Board.h \
+ /home/kunruh/src/The-Moor-of-Venice/src/../include/Board.h \
  /nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/include/SFML/Graphics.hpp \
  /nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/include/SFML/Window.hpp \
  /nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/include/SFML/System.hpp \

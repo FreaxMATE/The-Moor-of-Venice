@@ -1,4 +1,4 @@
-#include "Board.h"
+#include "../include/Board.h"
 
 // Constructor to initialize the board with given width and height
 Board::Board(int width, int height) : width(width), height(height) {
@@ -34,9 +34,9 @@ void Board::draw(sf::RenderWindow &window) {
         for (int y = 0; y < height; ++y) {
             cellShape.setPosition(x * cellSize, y * cellSize); // Set the position of the cell shape
             switch (board_array[x][y]) {
-                case 1: cellShape.setFillColor(invert ? sf::Color::White : sf::Color::Black); break; // White for player 1
-                case -1: cellShape.setFillColor(invert ? sf::Color::Black : sf::Color::White); break; // Black for player -1
-                default: cellShape.setFillColor(sf::Color::Green); break; // Green for empty cells
+                case 1: cellShape.setFillColor(!invert ? sf::Color::White : sf::Color::Black); break; // White for player 1
+                case -1: cellShape.setFillColor(!invert ? sf::Color::Black : sf::Color::White); break; // Black for player -1
+                default: cellShape.setFillColor(sf::Color(99, 181, 85)); break; // Green for empty cells
             }
             window.draw(cellShape); // Draw the cell shape on the window
         }
@@ -70,7 +70,7 @@ int Board::getCell(int x, int y) const { return board_array[x][y]; }
 void Board::setCell(int x, int y, int value) { board_array[x][y] = value; }
 
 // Select whether to invert color
-void Board::setColorInvert(bool invert) { invert = invert; }
+void Board::setColorInvert(bool invertupdate) { invert = invertupdate; }
 
 // Set the size of the board and update the cell size
 void Board::setSize(int newWidth, int newHeight) {
@@ -144,7 +144,7 @@ void Board::highlightValidMoves(sf::RenderWindow &window, int player) {
         for (int y = 0; y < height; ++y) {
             if (isValidMove(x, y, player)) {
                 cellShape.setPosition(x * cellSize, y * cellSize);
-                cellShape.setFillColor(sf::Color(255, 255, 0, 128)); // Highlight color
+                cellShape.setFillColor(sf::Color(160, 40, 40, 128)); // Highlight color
                 window.draw(cellShape);
             }
         }

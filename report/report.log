@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/nixos.org) (preloaded format=pdflatex 1980.1.1)  10 FEB 2025 15:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/nixos.org) (preloaded format=pdflatex 1980.1.1)  10 FEB 2025 23:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -318,35 +318,54 @@ Package hyperref Info: Link coloring OFF on input line 14.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(./report.toc)
-\tf@toc=\write4
-\openout4 = `report.toc'.
+[1
 
- [1
+{/nix/store/j75s62ny5s8g8mxp6yd1n2839wgn27s9-texlive-combined-full-2023-final/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/nix/store/mmfbr0bck8cxdcvdrn8bx9hk92midwh3-texlive-combined-full-2023-final-texmfdist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Overfull \hbox (2.56308pt too wide) in paragraph at lines 59--60
+[][][]\OT1/cmtt/m/n/12 std::chrono::high_resolution_clock::time_point startTime[]\OT1/cmr/m/n/12 : The start time
+ []
 
-{/nix/store/j75s62ny5s8g8mxp6yd1n2839wgn27s9-texlive-combined-full-2023-final/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-No file report.bbl.
-[3] (./report.aux)
+
+Overfull \hbox (22.50734pt too wide) in paragraph at lines 74--74
+[]    \OT1/cmtt/m/n/12 int elapsedTimeMs = std::chrono::duration_cast<std::chrono::milliseconds>[] 
+ []
+
+[2]
+Overfull \hbox (170.70741pt too wide) in paragraph at lines 124--124
+[]                \OT1/cmtt/m/n/12 int eval = minimax(tempBoard, depth - 1, false, alpha, beta, startTime, timeLimitMs);[] 
+ []
+
+
+Overfull \hbox (164.53241pt too wide) in paragraph at lines 124--124
+[]                \OT1/cmtt/m/n/12 int eval = minimax(tempBoard, depth - 1, true, alpha, beta, startTime, timeLimitMs);[] 
+ []
+
+[3]
+Overfull \hbox (16.33234pt too wide) in paragraph at lines 168--168
+[]    \OT1/cmtt/m/n/12 // Evaluate the board based on the heuristic values if it's an 8x8 board[] 
+ []
+
+[4] [5] (./report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 0B9BE3D50FD0E4E4E647FD8FC2D437AA;796.
+(rerunfilecheck)             Checksum: 957E4CC30E40695C891F768AB039B6E5;697.
  ) 
 Here is how much of TeX's memory you used:
  9554 strings out of 474116
- 153425 string characters out of 5717523
- 1936187 words of memory out of 5000000
- 31804 multiletter control sequences out of 15000+600000
- 565139 words of font info for 61 fonts, out of 8000000 for 9000
+ 153443 string characters out of 5717523
+ 1942187 words of memory out of 5000000
+ 31798 multiletter control sequences out of 15000+600000
+ 565095 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,471b,441s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</nix/store/mmfbr0bck8cxdcvdrn8bx9hk92midwh3-texlive-combined-full-2023-final-texmfdist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></nix/store/mmfbr0bck8cxdcvdrn8bx9hk92midwh3-texlive-combined-full-2023-final-texmfdist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></nix/store/mmfbr0bck8cxdcvdrn8bx9hk92midwh3-texlive-combined-full-2023-final-texmfdist/fonts/type1/public/amsfonts/cm/cmr10.pfb></nix/store/mmfbr0bck8cxdcvdrn8bx9hk92midwh3-texlive-combined-full-2023-final-texmfdist/fonts/type1/public/amsfonts/cm/cmr12.pfb></nix/store/mmfbr0bck8cxdcvdrn8bx9hk92midwh3-texlive-combined-full-2023-final-texmfdist/fonts/type1/public/amsfonts/cm/cmr17.pfb></nix/store/mmfbr0bck8cxdcvdrn8bx9hk92midwh3-texlive-combined-full-2023-final-texmfdist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on report.pdf (3 pages, 84436 bytes).
+ 75i,8n,79p,645b,588s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</nix/store/mmfbr0bck8cxdcvdrn8bx9hk92midwh3-texlive-combined-full-2023-final-texmfdist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></nix/store/mmfbr0bck8cxdcvdrn8bx9hk92midwh3-texlive-combined-full-2023-final-texmfdist/fonts/type1/public/amsfonts/cm/cmr10.pfb></nix/store/mmfbr0bck8cxdcvdrn8bx9hk92midwh3-texlive-combined-full-2023-final-texmfdist/fonts/type1/public/amsfonts/cm/cmr12.pfb></nix/store/mmfbr0bck8cxdcvdrn8bx9hk92midwh3-texlive-combined-full-2023-final-texmfdist/fonts/type1/public/amsfonts/cm/cmr17.pfb></nix/store/mmfbr0bck8cxdcvdrn8bx9hk92midwh3-texlive-combined-full-2023-final-texmfdist/fonts/type1/public/amsfonts/cm/cmr7.pfb></nix/store/mmfbr0bck8cxdcvdrn8bx9hk92midwh3-texlive-combined-full-2023-final-texmfdist/fonts/type1/public/amsfonts/cm/cmr8.pfb></nix/store/mmfbr0bck8cxdcvdrn8bx9hk92midwh3-texlive-combined-full-2023-final-texmfdist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></nix/store/mmfbr0bck8cxdcvdrn8bx9hk92midwh3-texlive-combined-full-2023-final-texmfdist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on report.pdf (5 pages, 111550 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
- 65 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 111 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
+ 21 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

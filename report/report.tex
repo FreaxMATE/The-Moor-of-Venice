@@ -7,80 +7,164 @@
 \usepackage{geometry}
 \geometry{a4paper, margin=1in}
 
-\title{Artificial Intelligence Project Report}
-\author{Your Name}
+\title{Artificial Intelligence: Minimax algorithm implementation in Othello}
+\author{Konstantin Unruh}
 \date{\today}
 
 \begin{document}
 
 \maketitle
 
-\begin{abstract}
-This report provides an overview of the project conducted in the Artificial Intelligence course. The project focuses on [brief description of the project].
-\end{abstract}
 
-\tableofcontents
+\section{Background: Minimax Algorithm}
+The Minimax algorithm is a decision-making algorithm used in artificial intelligence, particularly in game theory and two-player games such as chess, tic-tac-toe, and checkers. The algorithm aims to minimize the possible loss for a worst-case scenario. The Minimax algorithm operates by simulating ideally all possible moves in a game and their subsequent outcomes, assuming that both players play optimally. The algorithm consists of the following steps:
 
-\section{Introduction}
-Provide an introduction to the project, including the objectives and the significance of the project.
+\begin{enumerate}
+    \item \textbf{Generate the Game Tree}: Create a tree structure where each node represents a game state, and each edge represents a possible move by a player.
+    \item \textbf{Evaluate Terminal States}: Assign a value to each terminal state (leaf node) based on the outcome of the game (win, lose, draw).
+    \item \textbf{Backpropagate Values}: Starting from the terminal states, propagate the values back up the tree. For each non-terminal node:
+    \begin{itemize}
+        \item If it is the maximizing player's turn, assign the maximum value of its children.
+        \item If it is the minimizing player's turn, assign the minimum value of its children.
+    \end{itemize}
+    \item \textbf{Choose the Optimal Move}: At the root node, the maximizing player chooses the move that leads to the child node with the highest value.
+\end{enumerate}
 
-\section{Background}
-Discuss the background information and related work that is relevant to the project.
+\footnote{Elin Anna Topp et al. Lecture: Artificial Intelligence, Lund university, 2025}, \footnote{https://www.geeksforgeeks.org/mini-max-algorithm-in-artificial-intelligence/}, \footnote{https://www.freecodecamp.org/news/minimax-algorithm-guide-how-to-create-an-unbeatable-ai/}
 
-\section{Methodology}
-Describe the methods and techniques used in the project. Include any algorithms, models, or tools that were utilized.
+\section{Code description}
+\subsection{General}
+The game is implemented in C++ using the SFML graphics library\footnote{https://www.sfml-dev.org/} and is built using CMake\footnote{https://cmake.org/}.
+\subsection{File description}
+\begin{itemize}
+    \item \textbf{src/main.cpp}: This file contains the \texttt{main} function, which is the entry point of the application. It initializes the game by creating an instance of the \texttt{Game} class and starts the main game loop. It handles the setup and teardown of the game environment.
 
-\subsection{Minimax Algorithm}
-The Minimax algorithm is a decision-making algorithm used in artificial intelligence, particularly in game theory and two-player games such as chess, tic-tac-toe, and checkers. The algorithm aims to minimize the possible loss for a worst-case scenario. When dealing with gains, it is referred to as "maximin"—to maximize the minimum gain.
+    \item \textbf{src/Game.cpp}: Implements the main game logic. This includes initializing game components, handling player input, updating the game state, and rendering the game. It manages different game states such as the start menu, playing, and end screen. It also includes methods for starting and stopping the game, processing user commands, and updating the game board.
 
-The Minimax algorithm operates by simulating all possible moves in a game and their subsequent outcomes, assuming that both players play optimally. The algorithm consists of the following steps:
+    \item \textbf{src/AI.cpp}: Contains the implementation of the AI logic for the game. This includes decision-making algorithms for the AI player, such as evaluating possible moves and selecting the best move based on a given strategy. It uses the minimax algorithm, alpha-beta pruning, or other heuristic methods to make decisions.
 
-1. **Generate the Game Tree**: Create a tree structure where each node represents a game state, and each edge represents a possible move by a player.
+    \item \textbf{src/Board.cpp}: Manages the game board, including initializing the board, drawing it, and handling moves. It includes methods for resetting the board, checking and highlighting valid moves (e.g., win, lose, draw). It also handles the graphical representation of the board and the placement of pieces or markers.
+\end{itemize}
 
-2. **Evaluate Terminal States**: Assign a value to each terminal state (leaf node) based on the outcome of the game (win, lose, draw).
+\subsection{Minimax algorithm}
+The minimax algorithm is implemented in the \textbf{src/AI.cpp} file. 
+As arguments the minimax algorithm takes the following values:
 
-3. **Backpropagate Values**: Starting from the terminal states, propagate the values back up the tree. For each non-terminal node:
-   - If it is the maximizing player's turn, assign the maximum value of its children.
-   - If it is the minimizing player's turn, assign the minimum value of its children.
+\begin{itemize}
+    \item \texttt{Board \&board}: A reference to the current state of the game board.
+    \item \texttt{int depth}: The current depth of the search tree.
+    \item \texttt{bool isMaximizing}: A boolean indicating whether the current player is the maximizing player. Here we did in contrary to the example in the lecture only use one method and then use this variable to distinguish between maximizing and minimizing player.
+    \item \texttt{int alpha}: The alpha value for alpha-beta pruning, representing the best value that the maximizer currently can guarantee.
+    \item \texttt{int beta}: The beta value for alpha-beta pruning, representing the best value that the minimizer currently can guarantee.
+    \item \verb|std::chrono::high_resolution_clock::time_point startTime|: The start time of the minimax function, used to enforce a time limit.
+    \item \verb|int timeLimitMs|: The time limit in milliseconds for the minimax function to run.
+\end{itemize}
 
-4. **Choose the Optimal Move**: At the root node, the maximizing player chooses the move that leads to the child node with the highest value.
-
-The Minimax algorithm can be enhanced with alpha-beta pruning, which reduces the number of nodes evaluated in the game tree by eliminating branches that cannot influence the final decision.
-
-Here is a pseudocode representation of the Minimax algorithm:
-
+We then check whether the time limit has been reached. There we use 
+the \texttt{td:chrono} library to get the elapsed between the first call of the function and the current state. If the elapsed time first surpasses 
+the time limit the evaluate function is immediately called.
 \begin{verbatim}
-function minimax(node, depth, maximizingPlayer):
-    if depth == 0 or node is a terminal node:
-        return the heuristic value of node
-
-    if maximizingPlayer:
-        maxEval = -inf
-        for each child of node:
-            eval = minimax(child, depth - 1, false)
-            maxEval = max(maxEval, eval)
-        return maxEval
-    else:
-        minEval = +inf
-        for each child of node:
-            eval = minimax(child, depth - 1, true)
-            minEval = min(minEval, eval)
-        return minEval
+    // Check if the time limit has been reached
+    auto currentTime = std::chrono::high_resolution_clock::now();
+    int elapsedTimeMs = std::chrono::duration_cast<std::chrono::milliseconds>
+                        (currentTime - startTime).count();
+    if (elapsedTimeMs >= timeLimitMs) {
+        return evaluateBoard(board);
+    }
 \end{verbatim}
 
-In this project, the Minimax algorithm was implemented to [describe the specific application of the algorithm in your project, e.g., solve a game, make decisions, etc.]. The algorithm was tested and evaluated based on [describe the evaluation criteria and results].
+Then we check whether the maximum depth has been reached. For a reasonable time limit this will only occur for small boards or near the end of the game.
 
-\section{Results}
-Present the results of the project. Include any data, graphs, or figures that help to illustrate the findings.
+\begin{verbatim}
+    // If the maximum depth is reached, evaluate the board
+    if (depth == 0) {
+        return evaluateBoard(board);
+    }
+\end{verbatim}
 
-\section{Discussion}
-Interpret the results and discuss their implications. Mention any limitations of the study and potential areas for future work.
+The minimax function recursively evaluates possible moves to determine the best move for the maximizing player, considering a time limit and depth limit. The getPossibleMoves function generates all potential moves for a given player by checking empty cells on the board. The applyMove function applies a move to a temporary board to simulate the game state. Alpha-beta pruning is used to cut off branches in the search tree that won't affect the final decision, improving efficiency. The equivalent is done for the 
+minimizing player.
+\begin{verbatim}
+    if (isMaximizing) {
+        int maxEval = std::numeric_limits<int>::min();
+        // Iterate through all possible moves for the maximizing player
+        for (const auto &move : getPossibleMoves(board, -1)) {
+            if (board.isValidMove(move.first, move.second, -1)) {
+                Board tempBoard = board;
+                applyMove(tempBoard, move.first, move.second, -1);
+                // Recursively call minimax for the minimizing player
+                int eval = minimax(tempBoard, depth - 1, false, alpha, beta, startTime, timeLimitMs);
+                maxEval = std::max(maxEval, eval);
+                alpha = std::max(alpha, eval);
+                if (beta <= alpha) {
+                    break; // Beta cut-off
+                }
+            }
+        }
+        return maxEval;
+    } else {
+        int minEval = std::numeric_limits<int>::max();
+        // Iterate through all possible moves for the minimizing player
+        for (const auto &move : getPossibleMoves(board, 1)) {
+            if (board.isValidMove(move.first, move.second, 1)) {
+                Board tempBoard = board;
+                applyMove(tempBoard, move.first, move.second, 1);
+                // Recursively call minimax for the maximizing player
+                int eval = minimax(tempBoard, depth - 1, true, alpha, beta, startTime, timeLimitMs);
+                minEval = std::min(minEval, eval);
+                beta = std::min(beta, eval);
+                if (beta <= alpha) {
+                    break; // Alpha cut-off
+                }
+            }
+        }
+        return minEval;
+    }
+}
+\end{verbatim}
 
-\section{Conclusion}
-Summarize the key findings of the project and their significance.
 
-\section{References}
-\bibliographystyle{plain}
-\bibliography{references}
+Now for the evaluate function different heuristic techniques can be 
+applied. For most board sizes we simply sum over all cells and for 
+an 8x8 we each cell has a weight taken from a heuristic matrix. This 
+matrix is taken from the open source game Reversi \footnote{https://gitlab.gnome.org/GNOME/iagno}.
+\begin{verbatim}
+
+int AI::evaluateBoard(const Board &board) {
+    // Heuristic values for an 8x8 board
+    static const int heuristic_8[8][8] = {
+        { 410,  23,  13,   8,   8,  13,  23, 410 },
+        {  23, -75, -22, -51, -51, -22, -75,  23 },
+        {  13, -22,  41,   3,   3,  41, -22,  13 },
+        {   8, -51,   3, -87, -87,   3, -51,   8 },
+        {   8, -51,   3, -87, -87,   3, -51,   8 },
+        {  13, -22,  41,   3,   3,  41, -22,  13 },
+        {  23, -75, -22, -51, -51, -22, -75,  23 },
+        { 410,  23,  13,   8,   8,  13,  23, 410 }
+    };
+
+    int score = 0;
+    int width = board.getWidth();
+    int height = board.getHeight();
+
+    // Evaluate the board based on the heuristic values if it's an 8x8 board
+    if (width == 8 && height == 8) {
+        for (int x = 0; x < width; ++x) {
+            for (int y = 0; y < height; ++y) {
+                score += board.getCell(x, y) * heuristic_8[x][y];
+            }
+        }
+    } else {
+        // Otherwise, simply sum up the cell values
+        for (int x = 0; x < width; ++x) {
+            for (int y = 0; y < height; ++y) {
+                score += board.getCell(x, y);
+            }
+        }
+    }
+
+    return score;
+}
+\end{verbatim}
 
 \end{document}

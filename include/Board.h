@@ -15,7 +15,7 @@ public:
     int getWidth() const;
     int getHeight() const;
     int getCell(int x, int y) const;
-    void setColorInvert(bool invert);
+    void setColorInvert(bool invertupdate);
     void setCell(int x, int y, int value);
     void setSize(int width, int height);
     float getCellSize() const;

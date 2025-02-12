@@ -53,10 +53,10 @@ RM = /nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy
+CMAKE_SOURCE_DIR = /home/kunruh/src/The-Moor-of-Venice
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build
+CMAKE_BINARY_DIR = /home/kunruh/src/The-Moor-of-Venice/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/MyGame.dir/depend.make
@@ -70,60 +70,60 @@ include CMakeFiles/MyGame.dir/progress.make
 include CMakeFiles/MyGame.dir/flags.make
 
 CMakeFiles/MyGame.dir/src/main.cpp.o: CMakeFiles/MyGame.dir/flags.make
-CMakeFiles/MyGame.dir/src/main.cpp.o: /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/main.cpp
+CMakeFiles/MyGame.dir/src/main.cpp.o: /home/kunruh/src/The-Moor-of-Venice/src/main.cpp
 CMakeFiles/MyGame.dir/src/main.cpp.o: CMakeFiles/MyGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MyGame.dir/src/main.cpp.o"
-	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyGame.dir/src/main.cpp.o -MF CMakeFiles/MyGame.dir/src/main.cpp.o.d -o CMakeFiles/MyGame.dir/src/main.cpp.o -c /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MyGame.dir/src/main.cpp.o"
+	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyGame.dir/src/main.cpp.o -MF CMakeFiles/MyGame.dir/src/main.cpp.o.d -o CMakeFiles/MyGame.dir/src/main.cpp.o -c /home/kunruh/src/The-Moor-of-Venice/src/main.cpp
 
 CMakeFiles/MyGame.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MyGame.dir/src/main.cpp.i"
-	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/main.cpp > CMakeFiles/MyGame.dir/src/main.cpp.i
+	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kunruh/src/The-Moor-of-Venice/src/main.cpp > CMakeFiles/MyGame.dir/src/main.cpp.i
 
 CMakeFiles/MyGame.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MyGame.dir/src/main.cpp.s"
-	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/main.cpp -o CMakeFiles/MyGame.dir/src/main.cpp.s
+	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kunruh/src/The-Moor-of-Venice/src/main.cpp -o CMakeFiles/MyGame.dir/src/main.cpp.s
 
 CMakeFiles/MyGame.dir/src/Game.cpp.o: CMakeFiles/MyGame.dir/flags.make
-CMakeFiles/MyGame.dir/src/Game.cpp.o: /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/Game.cpp
+CMakeFiles/MyGame.dir/src/Game.cpp.o: /home/kunruh/src/The-Moor-of-Venice/src/Game.cpp
 CMakeFiles/MyGame.dir/src/Game.cpp.o: CMakeFiles/MyGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MyGame.dir/src/Game.cpp.o"
-	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyGame.dir/src/Game.cpp.o -MF CMakeFiles/MyGame.dir/src/Game.cpp.o.d -o CMakeFiles/MyGame.dir/src/Game.cpp.o -c /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/Game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MyGame.dir/src/Game.cpp.o"
+	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyGame.dir/src/Game.cpp.o -MF CMakeFiles/MyGame.dir/src/Game.cpp.o.d -o CMakeFiles/MyGame.dir/src/Game.cpp.o -c /home/kunruh/src/The-Moor-of-Venice/src/Game.cpp
 
 CMakeFiles/MyGame.dir/src/Game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MyGame.dir/src/Game.cpp.i"
-	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/Game.cpp > CMakeFiles/MyGame.dir/src/Game.cpp.i
+	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kunruh/src/The-Moor-of-Venice/src/Game.cpp > CMakeFiles/MyGame.dir/src/Game.cpp.i
 
 CMakeFiles/MyGame.dir/src/Game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MyGame.dir/src/Game.cpp.s"
-	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/Game.cpp -o CMakeFiles/MyGame.dir/src/Game.cpp.s
+	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kunruh/src/The-Moor-of-Venice/src/Game.cpp -o CMakeFiles/MyGame.dir/src/Game.cpp.s
 
 CMakeFiles/MyGame.dir/src/AI.cpp.o: CMakeFiles/MyGame.dir/flags.make
-CMakeFiles/MyGame.dir/src/AI.cpp.o: /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/AI.cpp
+CMakeFiles/MyGame.dir/src/AI.cpp.o: /home/kunruh/src/The-Moor-of-Venice/src/AI.cpp
 CMakeFiles/MyGame.dir/src/AI.cpp.o: CMakeFiles/MyGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MyGame.dir/src/AI.cpp.o"
-	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyGame.dir/src/AI.cpp.o -MF CMakeFiles/MyGame.dir/src/AI.cpp.o.d -o CMakeFiles/MyGame.dir/src/AI.cpp.o -c /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/AI.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MyGame.dir/src/AI.cpp.o"
+	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyGame.dir/src/AI.cpp.o -MF CMakeFiles/MyGame.dir/src/AI.cpp.o.d -o CMakeFiles/MyGame.dir/src/AI.cpp.o -c /home/kunruh/src/The-Moor-of-Venice/src/AI.cpp
 
 CMakeFiles/MyGame.dir/src/AI.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MyGame.dir/src/AI.cpp.i"
-	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/AI.cpp > CMakeFiles/MyGame.dir/src/AI.cpp.i
+	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kunruh/src/The-Moor-of-Venice/src/AI.cpp > CMakeFiles/MyGame.dir/src/AI.cpp.i
 
 CMakeFiles/MyGame.dir/src/AI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MyGame.dir/src/AI.cpp.s"
-	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/AI.cpp -o CMakeFiles/MyGame.dir/src/AI.cpp.s
+	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kunruh/src/The-Moor-of-Venice/src/AI.cpp -o CMakeFiles/MyGame.dir/src/AI.cpp.s
 
 CMakeFiles/MyGame.dir/src/Board.cpp.o: CMakeFiles/MyGame.dir/flags.make
-CMakeFiles/MyGame.dir/src/Board.cpp.o: /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/Board.cpp
+CMakeFiles/MyGame.dir/src/Board.cpp.o: /home/kunruh/src/The-Moor-of-Venice/src/Board.cpp
 CMakeFiles/MyGame.dir/src/Board.cpp.o: CMakeFiles/MyGame.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MyGame.dir/src/Board.cpp.o"
-	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyGame.dir/src/Board.cpp.o -MF CMakeFiles/MyGame.dir/src/Board.cpp.o.d -o CMakeFiles/MyGame.dir/src/Board.cpp.o -c /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/Board.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MyGame.dir/src/Board.cpp.o"
+	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyGame.dir/src/Board.cpp.o -MF CMakeFiles/MyGame.dir/src/Board.cpp.o.d -o CMakeFiles/MyGame.dir/src/Board.cpp.o -c /home/kunruh/src/The-Moor-of-Venice/src/Board.cpp
 
 CMakeFiles/MyGame.dir/src/Board.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MyGame.dir/src/Board.cpp.i"
-	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/Board.cpp > CMakeFiles/MyGame.dir/src/Board.cpp.i
+	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kunruh/src/The-Moor-of-Venice/src/Board.cpp > CMakeFiles/MyGame.dir/src/Board.cpp.i
 
 CMakeFiles/MyGame.dir/src/Board.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MyGame.dir/src/Board.cpp.s"
-	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/Board.cpp -o CMakeFiles/MyGame.dir/src/Board.cpp.s
+	/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kunruh/src/The-Moor-of-Venice/src/Board.cpp -o CMakeFiles/MyGame.dir/src/Board.cpp.s
 
 # Object files for target MyGame
 MyGame_OBJECTS = \
@@ -145,7 +145,7 @@ bin/MyGame: /nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/lib/libsfml-a
 bin/MyGame: /nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/lib/libsfml-window.so.2.5.1
 bin/MyGame: /nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/lib/libsfml-system.so.2.5.1
 bin/MyGame: CMakeFiles/MyGame.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable bin/MyGame"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable bin/MyGame"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MyGame.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -157,6 +157,6 @@ CMakeFiles/MyGame.dir/clean:
 .PHONY : CMakeFiles/MyGame.dir/clean
 
 CMakeFiles/MyGame.dir/depend:
-	cd /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build/CMakeFiles/MyGame.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/kunruh/src/The-Moor-of-Venice/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kunruh/src/The-Moor-of-Venice /home/kunruh/src/The-Moor-of-Venice /home/kunruh/src/The-Moor-of-Venice/build /home/kunruh/src/The-Moor-of-Venice/build /home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles/MyGame.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/MyGame.dir/depend
 

@@ -1,21 +1,22 @@
-project('MyGame', 'cpp', 
-  version : '0.1', 
-  default_options : ['cpp_std=c++17'])
-
-# Dependencies
-sfml_dep = dependency('sfml', version : '>=2.5', modules : ['system', 'window', 'graphics', 'network', 'audio'])
-
-# Include directories
-inc = include_directories('include')
+project('MyGame', 'cpp', default_options: ['cpp_std=c++17'])
 
 # Source files
-sources = files('src/main.cpp', 'src/Game.cpp', 'src/Graphics.cpp', 'src/Logic/GameLogic.cpp')
+src_files = files(
+  'src/main.cpp',
+  'src/Game.cpp',
+  'src/AI.cpp',
+  'src/Board.cpp'
+)
 
-# Executable
-executable('MyGame', sources, 
-  include_directories : inc,
-  dependencies : sfml_dep,
-  install : true)
-
-# Set the output directory for the executable
-meson.add_install_script('install.sh')
+# Create the executable
+exe = executable('MyGame', src_files, link_args: [
+#  '-L/nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/lib',
+  '-lsfml-graphics',
+  '-lsfml-window',
+  '-lsfml-audio',
+  '-lsfml-network',
+  '-lsfml-system',
+  '-lstdc++fs',  # Add this if you use filesystem library
+  '-static-libgcc',
+  '-static-libstdc++'
+])

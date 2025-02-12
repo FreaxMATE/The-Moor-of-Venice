@@ -1,4 +1,4 @@
-#include "Game.h"
+#include "../include/Game.h"
 #include <iostream>
 #include <cstdlib>
 #include <cstring>

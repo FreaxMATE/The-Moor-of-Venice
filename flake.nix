@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
   };
 
-  outputs = { self , nixpkgs ,... }:
+  outputs = { self, nixpkgs, ... }:
   let
     system = "x86_64-linux";
   in {
@@ -22,7 +22,9 @@
         sfml
         meson
         pkg-config
+        ninja
       ];
+
     };
   };
 }

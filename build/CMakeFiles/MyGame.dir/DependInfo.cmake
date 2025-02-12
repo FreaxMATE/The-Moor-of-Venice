@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/AI.cpp" "CMakeFiles/MyGame.dir/src/AI.cpp.o" "gcc" "CMakeFiles/MyGame.dir/src/AI.cpp.o.d"
-  "/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/Board.cpp" "CMakeFiles/MyGame.dir/src/Board.cpp.o" "gcc" "CMakeFiles/MyGame.dir/src/Board.cpp.o.d"
-  "/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/Game.cpp" "CMakeFiles/MyGame.dir/src/Game.cpp.o" "gcc" "CMakeFiles/MyGame.dir/src/Game.cpp.o.d"
-  "/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/main.cpp" "CMakeFiles/MyGame.dir/src/main.cpp.o" "gcc" "CMakeFiles/MyGame.dir/src/main.cpp.o.d"
+  "/home/kunruh/src/The-Moor-of-Venice/src/AI.cpp" "CMakeFiles/MyGame.dir/src/AI.cpp.o" "gcc" "CMakeFiles/MyGame.dir/src/AI.cpp.o.d"
+  "/home/kunruh/src/The-Moor-of-Venice/src/Board.cpp" "CMakeFiles/MyGame.dir/src/Board.cpp.o" "gcc" "CMakeFiles/MyGame.dir/src/Board.cpp.o.d"
+  "/home/kunruh/src/The-Moor-of-Venice/src/Game.cpp" "CMakeFiles/MyGame.dir/src/Game.cpp.o" "gcc" "CMakeFiles/MyGame.dir/src/Game.cpp.o.d"
+  "/home/kunruh/src/The-Moor-of-Venice/src/main.cpp" "CMakeFiles/MyGame.dir/src/main.cpp.o" "gcc" "CMakeFiles/MyGame.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

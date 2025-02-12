@@ -57,10 +57,10 @@ RM = /nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy
+CMAKE_SOURCE_DIR = /home/kunruh/src/The-Moor-of-Venice
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build
+CMAKE_BINARY_DIR = /home/kunruh/src/The-Moor-of-Venice/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -78,7 +78,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool for source..."
-	/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/bin/cpack --config ./CPackSourceConfig.cmake /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build/CPackSourceConfig.cmake
+	/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/bin/cpack --config ./CPackSourceConfig.cmake /home/kunruh/src/The-Moor-of-Venice/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -152,9 +152,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build/CMakeFiles /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles /home/kunruh/src/The-Moor-of-Venice/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

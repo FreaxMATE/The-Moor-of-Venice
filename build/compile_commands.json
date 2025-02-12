@@ -1,26 +1,26 @@
 [
-{
-  "directory": "/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build",
-  "command": "/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++  -I/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/include -g -o CMakeFiles/MyGame.dir/src/main.cpp.o -c /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/main.cpp",
-  "file": "/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/main.cpp",
-  "output": "CMakeFiles/MyGame.dir/src/main.cpp.o"
-},
-{
-  "directory": "/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build",
-  "command": "/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++  -I/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/include -g -o CMakeFiles/MyGame.dir/src/Game.cpp.o -c /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/Game.cpp",
-  "file": "/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/Game.cpp",
-  "output": "CMakeFiles/MyGame.dir/src/Game.cpp.o"
-},
-{
-  "directory": "/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build",
-  "command": "/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++  -I/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/include -g -o CMakeFiles/MyGame.dir/src/AI.cpp.o -c /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/AI.cpp",
-  "file": "/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/AI.cpp",
-  "output": "CMakeFiles/MyGame.dir/src/AI.cpp.o"
-},
-{
-  "directory": "/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/build",
-  "command": "/nix/store/888bkaqdpfpx72dd8bdc69qsqlgbhcvf-gcc-wrapper-13.3.0/bin/g++  -I/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/include -g -o CMakeFiles/MyGame.dir/src/Board.cpp.o -c /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/Board.cpp",
-  "file": "/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1_legacy/src/Board.cpp",
-  "output": "CMakeFiles/MyGame.dir/src/Board.cpp.o"
-}
+  {
+    "directory": "/home/kunruh/src/The-Moor-of-Venice/build",
+    "command": "c++ -IMyGame.p -I. -I.. -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -MD -MQ MyGame.p/src_main.cpp.o -MF MyGame.p/src_main.cpp.o.d -o MyGame.p/src_main.cpp.o -c ../src/main.cpp",
+    "file": "../src/main.cpp",
+    "output": "MyGame.p/src_main.cpp.o"
+  },
+  {
+    "directory": "/home/kunruh/src/The-Moor-of-Venice/build",
+    "command": "c++ -IMyGame.p -I. -I.. -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -MD -MQ MyGame.p/src_Game.cpp.o -MF MyGame.p/src_Game.cpp.o.d -o MyGame.p/src_Game.cpp.o -c ../src/Game.cpp",
+    "file": "../src/Game.cpp",
+    "output": "MyGame.p/src_Game.cpp.o"
+  },
+  {
+    "directory": "/home/kunruh/src/The-Moor-of-Venice/build",
+    "command": "c++ -IMyGame.p -I. -I.. -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -MD -MQ MyGame.p/src_AI.cpp.o -MF MyGame.p/src_AI.cpp.o.d -o MyGame.p/src_AI.cpp.o -c ../src/AI.cpp",
+    "file": "../src/AI.cpp",
+    "output": "MyGame.p/src_AI.cpp.o"
+  },
+  {
+    "directory": "/home/kunruh/src/The-Moor-of-Venice/build",
+    "command": "c++ -IMyGame.p -I. -I.. -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c++17 -O0 -g -MD -MQ MyGame.p/src_Board.cpp.o -MF MyGame.p/src_Board.cpp.o.d -o MyGame.p/src_Board.cpp.o -c ../src/Board.cpp",
+    "file": "../src/Board.cpp",
+    "output": "MyGame.p/src_Board.cpp.o"
+  }
 ]
