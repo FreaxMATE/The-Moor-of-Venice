@@ -5,7 +5,7 @@
  - SFML
  - CMake
 
-Install dependency on Ubuntu 24.04
+Install dependencies on Ubuntu 24.04
 ```bash
 sudo apt install git make g++ libsfml-dev cmake
 ```
