@@ -3,27 +3,27 @@
 ## Dependencies
 
  - SFML
- - Meson (for compilation)
+ - CMake
+
+Install dependency on Ubuntu 24.04
+```bash
+sudo apt install git make g++ libsfml-dev cmake
+```
+
+## Compile and run game
+```bash
+mkdir build
+cd build
+cmake ..
+make
+./MyGame
+```
+
 
 ## Nix
 
+Setup development environment based on the flake.nix
+
 ```bash
 nix develop
-```
-
-## Setup
-
-### Using Meson (prefered)
-```bash
-meson setup build
-meson compile -C build
-./build/MyGame
-```
-
-### Using CMake
-```bash
-mkdir build && cd build
-cmake ..
-cp ./bin/MyGame .
-./MyGame
 ```
