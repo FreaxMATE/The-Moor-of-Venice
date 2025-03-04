@@ -1,4 +1,4 @@
-#include "../include/AI.h"
+#include "AI.h"
 #include <limits>
 #include <chrono>
 
@@ -7,7 +7,7 @@ void AI::makeMove(Board &board, int timeLimitMs) {
     int bestValue = std::numeric_limits<int>::min();
     std::pair<int, int> bestMove = {-1, -1};
 
-    for (const auto &move : getPossibleMoves(board)) {
+    for (const auto &move : getPossibleMoves(board, -1)) {
         if (board.isValidMove(move.first, move.second, -1)) {
             Board tempBoard = board;
             applyMove(tempBoard, move.first, move.second, -1);
@@ -46,7 +46,7 @@ int AI::minimax(Board &board, int depth, bool isMaximizing, int alpha, int beta,
     if (isMaximizing) {
         int maxEval = std::numeric_limits<int>::min();
         // Iterate through all possible moves for the maximizing player
-        for (const auto &move : getPossibleMoves(board)) {
+        for (const auto &move : getPossibleMoves(board, -1)) {
             if (board.isValidMove(move.first, move.second, -1)) {
                 Board tempBoard = board;
                 applyMove(tempBoard, move.first, move.second, -1);
@@ -63,7 +63,7 @@ int AI::minimax(Board &board, int depth, bool isMaximizing, int alpha, int beta,
     } else {
         int minEval = std::numeric_limits<int>::max();
         // Iterate through all possible moves for the minimizing player
-        for (const auto &move : getPossibleMoves(board)) {
+        for (const auto &move : getPossibleMoves(board, 1)) {
             if (board.isValidMove(move.first, move.second, 1)) {
                 Board tempBoard = board;
                 applyMove(tempBoard, move.first, move.second, 1);
@@ -116,7 +116,7 @@ int AI::evaluateBoard(const Board &board) {
     return score;
 }
 
-std::vector<std::pair<int, int>> AI::getPossibleMoves(const Board &board) {
+std::vector<std::pair<int, int>> AI::getPossibleMoves(const Board &board, int player) {
     std::vector<std::pair<int, int>> moves;
     for (int x = 0; x < board.getWidth(); ++x) {
         for (int y = 0; y < board.getHeight(); ++y) {

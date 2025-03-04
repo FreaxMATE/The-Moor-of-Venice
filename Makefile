@@ -1,34 +1,20 @@
-# Compiler
 CXX = g++
+CXXFLAGS = -std=c++17 -I include
+LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
-# Compiler flags
-CXXFLAGS = -std=c++17 -Wall -Wextra -Iinclude
+SRC_FILES = src/main.cpp src/Game.cpp src/AI.cpp src/Board.cpp
+OBJ_FILES = $(SRC_FILES:.cpp=.o)
+TARGET = MyGame
 
-# SFML library flags
-SFML_LIBS = -lsfml-graphics -lsfml-window -lsfml-system
-
-# Source files
-SRCS = src/AI.cpp src/Board.cpp src/Game.cpp src/main.cpp 
-
-# Object files
-OBJS = $(SRCS:.cpp=.o)
-
-# Header files
-HEADERS = include/AI.h include/Board.h include/Game.h
-
-# Output executable
-TARGET = sfml_app
-
-# Build target
 all: $(TARGET)
 
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS) $(SFML_LIBS)
+$(TARGET): $(OBJ_FILES)
+	$(CXX) $(OBJ_FILES) -o $(TARGET) $(LDFLAGS)
 
-# Compile each source file into an object file
-%.o: %.cpp $(HEADERS)
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Clean target
 clean:
-	rm -f $(TARGET) $(OBJS)
+	rm -f $(OBJ_FILES) $(TARGET)
+
+.PHONY: all clean

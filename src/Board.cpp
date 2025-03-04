@@ -1,9 +1,4 @@
-#include <iostream> // For debugging
-#include "../include/Board.h"
-
-const std::vector<std::pair<int, int>> directions = {
-    {0, 1}, {1, 0}, {0, -1}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}
-};
+#include "Board.h"
 
 // Constructor to initialize the board with given width and height
 Board::Board(int width, int height) : width(width), height(height) {
@@ -100,34 +95,30 @@ bool Board::isOnBoard(int x, int y) const {
 }
 
 // Get the list of cells that would be flipped if the player makes a move at (x, y)
-std::vector<int> Board::getFlips(int x, int y, int player) const {
-    std::vector<int> flips;
-    // Ensure x and y are within bounds
-    if (!isOnBoard(x, y) || board_array[x][y] != 0) {
-        return flips;
-    }
+std::vector<std::pair<int, int>> Board::getFlips(int x, int y, int player) const {
+    std::vector<std::pair<int, int>> flips;
+    if (board_array[x][y] != 0) return flips; // Return empty if the cell is not empty
 
-    // Check all 8 directions
-    for (const auto& direction : directions) {
-        int dx = direction.first;
-        int dy = direction.second;
-        int nx = x + dx;
-        int ny = y + dy;
-        std::vector<int> temp_flips;
+    const std::vector<std::pair<int, int>> directions = {
+        {0, 1}, {1, 0}, {0, -1}, {-1, 0},
+        {1, 1}, {1, -1}, {-1, 1}, {-1, -1}
+    };
 
-        while (isOnBoard(nx, ny)) {
-            if (board_array[nx][ny] == -player) {
-                temp_flips.push_back(nx * width + ny);
-            } else if (board_array[nx][ny] == player) {
-                flips.insert(flips.end(), temp_flips.begin(), temp_flips.end());
-                break;
-            } else {
-                break;
-            }
-            nx += dx;
-            ny += dy;
+    for (const auto& dir : directions) {
+        int nx = x + dir.first, ny = y + dir.second;
+        std::vector<std::pair<int, int>> potentialFlips;
+
+        while (isOnBoard(nx, ny) && board_array[nx][ny] == -player) {
+            potentialFlips.push_back({nx, ny});
+            nx += dir.first;
+            ny += dir.second;
+        }
+
+        if (isOnBoard(nx, ny) && board_array[nx][ny] == player) {
+            flips.insert(flips.end(), potentialFlips.begin(), potentialFlips.end());
         }
     }
+
     return flips;
 }
 
@@ -139,17 +130,11 @@ bool Board::isValidMove(int x, int y, int player) const {
 // Apply the move at (x, y) for the player and flip the necessary cells
 void Board::applyMove(int x, int y, int player) {
     auto flips = getFlips(x, y, player);
-    if (!flips.empty()) {
-        board_array[x][y] = player;
-        for (int pos : flips) {
-            int fx = pos / width;
-            int fy = pos % width;
-            if (isOnBoard(fx, fy)) {
-                board_array[fx][fy] = player;
-            } else {
-                std::cerr << "Error: Out of bounds flip position (" << fx << ", " << fy << ")\n";
-            }
-        }
+    if (flips.empty()) return;
+
+    board_array[x][y] = player;
+    for (const auto& flip : flips) {
+        board_array[flip.first][flip.second] = player;
     }
 }
 

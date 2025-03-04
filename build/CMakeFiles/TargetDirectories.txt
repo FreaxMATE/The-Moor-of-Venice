@@ -1,3 +1,0 @@
-/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1/build/CMakeFiles/MyGame.dir
-/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1/build/CMakeFiles/edit_cache.dir
-/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1/build/CMakeFiles/rebuild_cache.dir

@@ -31,10 +31,7 @@ private:
     sf::RectangleShape cellShape;
     void updateCellSize();
     bool isOnBoard(int x, int y) const;
-    std::vector<int> getFlips(int x, int y, int player) const; // Correct declaration
-    std::vector<std::pair<int, int>> directions = { // Add directions for 8 possible moves
-        {1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 1}, {-1, -1}, {1, -1}, {-1, 1}
-    };
+    std::vector<std::pair<int, int>> getFlips(int x, int y, int player) const;
 };
 
 #endif // BOARD_H

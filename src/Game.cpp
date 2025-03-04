@@ -1,11 +1,24 @@
-#include "../include/Game.h"
+#include "Game.h"
 #include <iostream>
 #include <filesystem>
 #include <limits.h>
 #include <unistd.h>
 
+std::string getExecutablePath() {
+    char result[PATH_MAX];
+    ssize_t count = readlink("/proc/self/exe", result, PATH_MAX);
+    return std::string(result, (count > 0) ? count : 0);
+}
+
+std::string getAssetsPath() {
+    std::string exePath = getExecutablePath();
+    std::filesystem::path path(exePath);
+    return path.parent_path().parent_path().string() + "/assets/";
+}
+
+
 Game::Game(int boardSize, int timeLimit, bool startWithWhite) : window(sf::VideoMode(800, 800), "Othello"), board(), ai(), isPlayerTurn(true), gameState(GameState::StartMenu), boardSize(8), playerScore(0), aiScore(0), validMoves(0), timeLimit(200), startWithWhite(true) {
-    if (!"assets/fonts/Cave-Story.ttf") {
+    if (!font.loadFromFile(getAssetsPath() + "fonts/Cave-Story.ttf")) {
         std::cerr << "Failed to load font 'Cave-Story.ttf'" << std::endl;
         exit(EXIT_FAILURE);
     }
@@ -84,7 +97,9 @@ void Game::processEvents() {
     while (window.pollEvent(event)) {
         switch (event.type) {
             case sf::Event::MouseMoved:
-                updateMenuHover(event.mouseMove.x, event.mouseMove.y);
+                    updateMenuHover(event.mouseMove.x, event.mouseMove.y); // Call the hover update method
+            case sf::Event::KeyPressed:
+                handlePlayerInput(event.key.code, true);
                 break;
             case sf::Event::MouseButtonPressed:
                 if (event.mouseButton.button == sf::Mouse::Left) {
@@ -100,15 +115,13 @@ void Game::processEvents() {
             case sf::Event::Closed:
                 window.close();
                 break;
-            default:
-                break;
         }
     }
 }
 
 void Game::update() {
     if (gameState == GameState::Playing && !isPlayerTurn) {
-        ai.makeMove(board, timeLimit);
+        ai.makeMove(board, timeLimit); // Use the time limit variable
         isPlayerTurn = true;
         checkGameOver();
     }
@@ -130,6 +143,10 @@ void Game::render() {
         showEndScreen();
     }
     window.display();
+}
+
+void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed) {
+    // Handle keyboard input if needed
 }
 
 void Game::handleMouseClick(int x, int y) {
@@ -154,7 +171,7 @@ void Game::handleStartMenuClick(int x, int y) {
         board.reset();
         if (!startWithWhite) {
             board.setColorInvert(true);
-            ai.makeMove(board, timeLimit);
+            ai.makeMove(board, timeLimit); // Use the time limit variable
             isPlayerTurn = true;
         }
     } else if (switchColorText.getGlobalBounds().contains(x, y)) {
