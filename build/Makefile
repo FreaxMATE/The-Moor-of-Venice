@@ -57,33 +57,13 @@ RM = /nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kunruh/src/The-Moor-of-Venice
+CMAKE_SOURCE_DIR = /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kunruh/src/The-Moor-of-Venice/build
+CMAKE_BINARY_DIR = /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1/build
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target package
-package: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool..."
-	/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/bin/cpack --config ./CPackConfig.cmake
-.PHONY : package
-
-# Special rule for the target package
-package/fast: package
-.PHONY : package/fast
-
-# Special rule for the target package_source
-package_source:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool for source..."
-	/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/bin/cpack --config ./CPackSourceConfig.cmake /home/kunruh/src/The-Moor-of-Venice/build/CPackSourceConfig.cmake
-.PHONY : package_source
-
-# Special rule for the target package_source
-package_source/fast: package_source
-.PHONY : package_source/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -105,56 +85,11 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-.PHONY : list_install_components/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	/nix/store/yxf0cmyfrar671zqh0ml8pcw15mxk0mh-cmake-3.30.5/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles /home/kunruh/src/The-Moor-of-Venice/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1/build/CMakeFiles /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -297,12 +232,6 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... install"
-	@echo "... install/local"
-	@echo "... install/strip"
-	@echo "... list_install_components"
-	@echo "... package"
-	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... MyGame"
 	@echo "... src/AI.o"

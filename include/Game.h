@@ -14,7 +14,6 @@ private:
     void processEvents();
     void update();
     void render();
-    void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
     void handleMouseClick(int x, int y);
     void showStartMenu();
     void showEndScreen();

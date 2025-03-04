@@ -1,9 +1,3 @@
-/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles/MyGame.dir
-/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles/package.dir
-/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles/package_source.dir
-/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles/edit_cache.dir
-/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles/rebuild_cache.dir
-/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles/list_install_components.dir
-/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles/install.dir
-/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles/install/local.dir
-/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles/install/strip.dir
+/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1/build/CMakeFiles/MyGame.dir
+/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1/build/CMakeFiles/edit_cache.dir
+/home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1/build/CMakeFiles/rebuild_cache.dir

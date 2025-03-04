@@ -8,15 +8,8 @@ src_files = files(
   'src/Board.cpp'
 )
 
+# Find SFML package
+sfml = dependency('sfml-all', required: true)
+
 # Create the executable
-exe = executable('MyGame', src_files, link_args: [
-#  '-L/nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/lib',
-  '-lsfml-graphics',
-  '-lsfml-window',
-  '-lsfml-audio',
-  '-lsfml-network',
-  '-lsfml-system',
-  '-lstdc++fs',  # Add this if you use filesystem library
-  '-static-libgcc',
-  '-static-libstdc++'
-])
+exe = executable('MyGame', src_files, dependencies: [sfml])

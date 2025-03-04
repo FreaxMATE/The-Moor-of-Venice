@@ -1,7 +1,7 @@
 CMakeFiles/MyGame.dir/src/main.cpp.o: \
- /home/kunruh/src/The-Moor-of-Venice/src/main.cpp \
+ /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1/src/main.cpp \
  /nix/store/lcxvgkg659vbvdq86mhxa599wn48f35c-glibc-2.40-36-dev/include/stdc-predef.h \
- /home/kunruh/src/The-Moor-of-Venice/src/../include/Game.h \
+ /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1/src/../include/Game.h \
  /nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/include/SFML/Graphics.hpp \
  /nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/include/SFML/Window.hpp \
  /nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/include/SFML/System.hpp \
@@ -297,8 +297,8 @@ CMakeFiles/MyGame.dir/src/main.cpp.o: \
  /nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/include/SFML/Graphics/Sprite.hpp \
  /nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/include/SFML/Graphics/Text.hpp \
  /nix/store/ql0wgd6slp48h3z4119nfnvds7nyz8fm-sfml-2.5.1/include/SFML/Graphics/VertexBuffer.hpp \
- /home/kunruh/src/The-Moor-of-Venice/src/../include/Board.h \
- /home/kunruh/src/The-Moor-of-Venice/src/../include/AI.h \
+ /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1/src/../include/Board.h \
+ /home/kunruh/Documents/Studium/Physik/Master/2/Artificial_Intelligence/Assignments/1/src/../include/AI.h \
  /nix/store/62qjb50708fdhb4f2y7zxyqr1afir4fk-gcc-13.3.0/include/c++/13.3.0/chrono \
  /nix/store/62qjb50708fdhb4f2y7zxyqr1afir4fk-gcc-13.3.0/include/c++/13.3.0/bits/chrono.h \
  /nix/store/62qjb50708fdhb4f2y7zxyqr1afir4fk-gcc-13.3.0/include/c++/13.3.0/ratio \
