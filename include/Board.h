@@ -6,10 +6,11 @@
 
 class Board {
 public:
-    Board(int width = 6, int height = 6); // Default size set to 6x6
+    Board(int width, int height);
     Board(const Board& other); // Copy constructor
     Board& operator=(const Board& other); // Copy assignment operator
-    ~Board(); // Destructor
+    ~Board();
+
     void draw(sf::RenderWindow &window);
     void reset();
     int getWidth() const;

@@ -1,17 +1,16 @@
 #include "Board.h"
 
 // Constructor to initialize the board with given width and height
-Board::Board(int width, int height) : width(width), height(height) {
-    board_array.resize(width, std::vector<int>(height, 0)); // Initialize the board array with zeros
-    updateCellSize(); // Update the cell size based on the board dimensions
+Board::Board(int width, int height) : width(width), height(height), board_array(width, std::vector<int>(height, 0)) {
+    updateCellSize();
     cellShape.setOutlineColor(sf::Color::Black); // Set the outline color of the cell shape
     cellShape.setOutlineThickness(1); // Set the outline thickness of the cell shape
 }
 
 // Copy constructor
-Board::Board(const Board& other) 
-    : width(other.width), height(other.height), cellSize(other.cellSize), 
-      board_array(other.board_array), cellShape(other.cellShape) {}
+Board::Board(const Board& other)
+: width(other.width), height(other.height), cellSize(other.cellSize),
+board_array(other.board_array), cellShape(other.cellShape) {}
 
 // Assignment operator
 Board& Board::operator=(const Board& other) {
@@ -26,7 +25,7 @@ Board& Board::operator=(const Board& other) {
 }
 
 // Destructor
-Board::~Board() = default;
+Board::~Board() {};
 
 // Draw the board on the given window
 void Board::draw(sf::RenderWindow &window) {
@@ -97,12 +96,13 @@ bool Board::isOnBoard(int x, int y) const {
 // Get the list of cells that would be flipped if the player makes a move at (x, y)
 std::vector<std::pair<int, int>> Board::getFlips(int x, int y, int player) const {
     std::vector<std::pair<int, int>> flips;
-    if (board_array[x][y] != 0) return flips; // Return empty if the cell is not empty
+    if (!isOnBoard(x, y) || board_array[x][y] != 0)
+        return flips; // Return empty if the cell is not empty
 
-    const std::vector<std::pair<int, int>> directions = {
-        {0, 1}, {1, 0}, {0, -1}, {-1, 0},
-        {1, 1}, {1, -1}, {-1, 1}, {-1, -1}
-    };
+        const std::vector<std::pair<int, int>> directions = {
+            {0, 1}, {1, 0}, {0, -1}, {-1, 0},
+            {1, 1}, {1, -1}, {-1, 1}, {-1, -1}
+        };
 
     for (const auto& dir : directions) {
         int nx = x + dir.first, ny = y + dir.second;

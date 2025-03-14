@@ -18,7 +18,7 @@ std::string getAssetsPath() {
 }
 
 
-Game::Game(int boardSize, int timeLimit, bool startWithWhite) : window(sf::VideoMode(800, 800), "Othello"), board(), ai(), isPlayerTurn(true), gameState(GameState::StartMenu), boardSize(8), playerScore(0), aiScore(0), validMoves(0), timeLimit(200), startWithWhite(true) {
+Game::Game(int boardSize, int timeLimit, bool startWithWhite) : window(sf::VideoMode(800, 800), "Othello"), board(boardSize, boardSize), ai(), isPlayerTurn(true), gameState(GameState::StartMenu), boardSize(8), playerScore(0), aiScore(0), validMoves(0), timeLimit(200), startWithWhite(true) {
     if (!font.loadFromFile(getAssetsPath() + "fonts/Cave-Story.ttf")) {
         std::cerr << "Failed to load font 'Cave-Story.ttf'" << std::endl;
         exit(EXIT_FAILURE);
@@ -98,7 +98,7 @@ void Game::processEvents() {
     while (window.pollEvent(event)) {
         switch (event.type) {
             case sf::Event::MouseMoved:
-                    updateMenuHover(event.mouseMove.x, event.mouseMove.y); // Call the hover update method
+                updateMenuHover(event.mouseMove.x, event.mouseMove.y); // Call the hover update method
             case sf::Event::KeyPressed:
                 handlePlayerInput(event.key.code, true);
                 break;
