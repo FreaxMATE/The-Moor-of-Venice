@@ -11,7 +11,7 @@ void AI::makeMove(Board &board, int timeLimitMs) {
     for (const auto &move : getPossibleMoves(board, -1)) {
         if (board.isValidMove(move.first, move.second, -1)) {
             Board tempBoard = board;
-            std::cout << "Created tempBoard in makeMove" << std::endl;
+            //std::cout << "Created tempBoard in makeMove" << std::endl;
             applyMove(tempBoard, move.first, move.second, -1);
             int moveValue = minimax(tempBoard, 10, false, std::numeric_limits<int>::min(), std::numeric_limits<int>::max(), startTime, timeLimitMs);
             if (moveValue > bestValue) {
@@ -51,7 +51,7 @@ int AI::minimax(Board &board, int depth, bool isMaximizing, int alpha, int beta,
         for (const auto &move : getPossibleMoves(board, -1)) {
             if (board.isValidMove(move.first, move.second, -1)) {
                 Board tempBoard = board; // Create a copy of the board
-                std::cout << "Created tempBoard in minimax (maximizing)" << std::endl;
+                //std::cout << "Created tempBoard in minimax (maximizing)" << std::endl;
                 applyMove(tempBoard, move.first, move.second, -1);
                 // Recursively call minimax for the minimizing player
                 int eval = minimax(tempBoard, depth - 1, false, alpha, beta, startTime, timeLimitMs);
@@ -69,7 +69,7 @@ int AI::minimax(Board &board, int depth, bool isMaximizing, int alpha, int beta,
         for (const auto &move : getPossibleMoves(board, 1)) {
             if (board.isValidMove(move.first, move.second, 1)) {
                 Board tempBoard = board; // Create a copy of the board
-                std::cout << "Created tempBoard in minimax (minimizing)" << std::endl;
+                //std::cout << "Created tempBoard in minimax (minimizing)" << std::endl;
                 applyMove(tempBoard, move.first, move.second, 1);
                 // Recursively call minimax for the maximizing player
                 int eval = minimax(tempBoard, depth - 1, true, alpha, beta, startTime, timeLimitMs);

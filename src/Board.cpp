@@ -75,7 +75,9 @@ void Board::setColorInvert(bool invertupdate) { invert = invertupdate; }
 void Board::setSize(int newWidth, int newHeight) {
     width = newWidth;
     height = newHeight;
-    board_array.resize(width, std::vector<int>(height, 0)); // Resize the board array
+    board_array.resize(width);
+    for (auto &row : board_array)
+        row.resize(height, 0);
     updateCellSize(); // Update the cell size based on the new dimensions
 }
 

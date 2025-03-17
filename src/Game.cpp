@@ -55,7 +55,7 @@ Game::Game(int boardSize, int timeLimit, bool startWithWhite) : window(sf::Video
     endText.setFont(font);
     endText.setCharacterSize(24);
     endText.setFillColor(sf::Color::White);
-    endText.setPosition(300, 400);
+    endText.setPosition(300, 300);
 
     playerScoreText.setFont(font);
     playerScoreText.setCharacterSize(24);
@@ -76,13 +76,13 @@ Game::Game(int boardSize, int timeLimit, bool startWithWhite) : window(sf::Video
     replayText.setString("Replay");
     replayText.setCharacterSize(24);
     replayText.setFillColor(sf::Color::White);
-    replayText.setPosition(300, 600);
+    replayText.setPosition(300, 350);
 
     closeText.setFont(font);
     closeText.setString("Close");
     closeText.setCharacterSize(24);
     closeText.setFillColor(sf::Color::White);
-    closeText.setPosition(300, 700);
+    closeText.setPosition(300, 600);
 }
 
 void Game::run() {
