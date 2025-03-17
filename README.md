@@ -19,9 +19,13 @@ make
 ./MyGame
 ```
 
+## Debug
+For debugging run cmake like this
+```bash
+cmake -DCMAKE_BUILD_TYPE=Debug ..
+```
 
 ## Nix
-
 Setup development environment based on the flake.nix
 
 ```bash
