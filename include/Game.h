@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Board.h"
 #include "AI.h"
 
@@ -36,6 +37,8 @@ private:
     sf::Text validMovesText;
     sf::Text replayText;
     sf::Text closeText;
+    sf::SoundBuffer buffer;
+    sf::Sound sound;
 
     Board board;
     AI ai;

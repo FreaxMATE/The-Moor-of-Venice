@@ -4,6 +4,43 @@
 #include <filesystem>
 #include <limits.h>
 #include <unistd.h>
+#include <cmath>
+#include <vector>
+#include <random>
+
+// Function to generate a random integer between min and max (inclusive)
+int getRandomInt(int min, int max) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(min, max);
+    return dis(gen);
+}
+
+// Function to generate a square wave
+sf::Int16 generateSquareWave(double frequency, int sampleRate, int sampleIndex) {
+    return (sampleIndex % static_cast<int>(sampleRate / frequency) < static_cast<int>(sampleRate / frequency) / 2) ? 30000 : -30000;
+}
+
+// Function to generate noise
+sf::Int16 generateNoise() {
+    return (std::rand() % 60000) - 30000;
+}
+
+// Function to generate a bass drum sound
+sf::Int16 generateBassDrum(int sampleRate, int sampleIndex) {
+    double frequency = 60.0; // Low frequency for bass drum
+    return 30000 * exp(-0.0004 * sampleIndex) * sin(2 * M_PI * frequency * sampleIndex / sampleRate);
+}
+
+// Function to generate a snare drum sound
+sf::Int16 generateSnareDrum(int sampleRate, int sampleIndex) {
+    return generateNoise() * exp(-0.0004 * sampleIndex);
+}
+
+// Function to generate a hi-hat sound
+sf::Int16 generateHiHat(int sampleRate, int sampleIndex) {
+    return generateNoise() * exp(-0.0008 * sampleIndex);
+}
 
 std::string getExecutablePath() {
     char result[PATH_MAX];
@@ -16,7 +53,6 @@ std::string getAssetsPath() {
     std::filesystem::path path(exePath);
     return path.parent_path().parent_path().string() + "/assets/";
 }
-
 
 Game::Game(int boardSize, int timeLimit, bool startWithWhite) : window(sf::VideoMode(800, 800), "Othello"), board(boardSize, boardSize), ai(), isPlayerTurn(true), gameState(GameState::StartMenu), boardSize(8), playerScore(0), aiScore(0), validMoves(0), timeLimit(200), startWithWhite(true) {
     if (!font.loadFromFile(getAssetsPath() + "fonts/Cave-Story.ttf")) {
@@ -59,17 +95,17 @@ Game::Game(int boardSize, int timeLimit, bool startWithWhite) : window(sf::Video
 
     playerScoreText.setFont(font);
     playerScoreText.setCharacterSize(24);
-    playerScoreText.setFillColor(sf::Color(128, 0, 128)); // Purple color
+    playerScoreText.setFillColor(sf::Color::Green); // Green color
     playerScoreText.setPosition(10, 10);
 
     aiScoreText.setFont(font);
     aiScoreText.setCharacterSize(24);
-    aiScoreText.setFillColor(sf::Color(128, 0, 128)); // Purple color
+    aiScoreText.setFillColor(sf::Color::Green); // Green color
     aiScoreText.setPosition(10, 40);
 
     validMovesText.setFont(font);
     validMovesText.setCharacterSize(24);
-    validMovesText.setFillColor(sf::Color(128, 0, 128)); // Purple color
+    validMovesText.setFillColor(sf::Color::Green); // Green color
     validMovesText.setPosition(10, 70);
 
     replayText.setFont(font);
@@ -83,6 +119,60 @@ Game::Game(int boardSize, int timeLimit, bool startWithWhite) : window(sf::Video
     closeText.setCharacterSize(24);
     closeText.setFillColor(sf::Color::White);
     closeText.setPosition(300, 600);
+
+    // Define three unique melodies
+    const std::vector<std::vector<double>> melodies = {
+        {523.25, 440.0, 659.25, 493.88, 587.33, 523.25, 783.99, 659.25, 523.25, 440.0, 659.25, 493.88, 587.33, 523.25, 783.99, 659.25},
+        {659.25, 783.99, 523.25, 440.0, 587.33, 493.88, 659.25, 523.25, 783.99, 659.25, 523.25, 440.0, 587.33, 493.88, 659.25, 523.25},
+        {440.0, 523.25, 659.25, 783.99, 493.88, 587.33, 523.25, 659.25, 440.0, 523.25, 659.25, 783.99, 493.88, 587.33, 523.25, 659.25}
+    };
+
+    const std::vector<std::vector<int>> durations = {
+        {400, 300, 500, 300, 400, 500, 300, 400, 500, 300, 400, 500, 300, 400, 500, 300},
+        {300, 400, 500, 300, 400, 500, 300, 400, 500, 300, 400, 500, 300, 400, 500, 300},
+        {500, 300, 400, 500, 300, 400, 500, 300, 400, 500, 300, 400, 500, 300, 400, 500}
+    };
+
+    // Choose a random melody
+    int melodyIndex = getRandomInt(0, melodies.size() - 1);
+    const std::vector<double>& frequencies = melodies[melodyIndex];
+    const std::vector<int>& chosenDurations = durations[melodyIndex];
+
+    const int sampleRate = 44100;
+    const int amplitude = 30000;
+    std::vector<sf::Int16> samples;
+
+    for (size_t i = 0; i < frequencies.size(); ++i) {
+        int noteDuration = sampleRate * chosenDurations[i] / 1000;
+        for (int j = 0; j < noteDuration; ++j) {
+            // Combine keys (sine wave), bass (square wave), and drums (noise)
+            sf::Int16 sample = amplitude * sin(2 * M_PI * frequencies[i] * j / sampleRate) / 6; // Keys
+            sample += generateSquareWave(frequencies[i] / 2, sampleRate, j) / 6; // Bass
+            if (j % (sampleRate / 4) < sampleRate / 100) {
+                sample += generateBassDrum(sampleRate, j) / 2; // Bass drum
+            }
+            if (j % (sampleRate / 2) < sampleRate / 100) {
+                sample += generateSnareDrum(sampleRate, j) / 2; // Snare drum
+            }
+            if (j % (sampleRate / 8) < sampleRate / 100) {
+                sample += generateHiHat(sampleRate, j) / 2; // Hi-hat
+            }
+            samples.push_back(sample);
+        }
+        // Add a short pause between notes
+        for (int j = 0; j < sampleRate / 20; ++j) {
+            samples.push_back(0);
+        }
+    }
+
+    if (!buffer.loadFromSamples(samples.data(), samples.size(), 1, sampleRate)) {
+        std::cerr << "Failed to load sound buffer" << std::endl;
+        exit(EXIT_FAILURE);
+    }
+
+    sound.setBuffer(buffer);
+    sound.setLoop(true); // Loop the sound
+    sound.play();
 }
 
 void Game::run() {

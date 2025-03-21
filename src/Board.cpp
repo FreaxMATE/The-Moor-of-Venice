@@ -35,7 +35,7 @@ void Board::draw(sf::RenderWindow &window) {
             switch (board_array[x][y]) {
                 case 1: cellShape.setFillColor(!invert ? sf::Color::White : sf::Color::Black); break; // White for player 1
                 case -1: cellShape.setFillColor(!invert ? sf::Color::Black : sf::Color::White); break; // Black for player -1
-                default: cellShape.setFillColor(sf::Color(99, 181, 85)); break; // Green for empty cells
+                default: cellShape.setFillColor(sf::Color(128, 0, 32)); break; // Burgundy red for empty cells
             }
             window.draw(cellShape); // Draw the cell shape on the window
         }
@@ -146,7 +146,7 @@ void Board::highlightValidMoves(sf::RenderWindow &window, int player) {
         for (int y = 0; y < height; ++y) {
             if (isValidMove(x, y, player)) {
                 cellShape.setPosition(x * cellSize, y * cellSize);
-                cellShape.setFillColor(sf::Color(160, 40, 40, 128)); // Highlight color
+                cellShape.setFillColor(sf::Color(255, 0, 0, 128)); // Brighter red for highlighted field
                 window.draw(cellShape);
             }
         }
