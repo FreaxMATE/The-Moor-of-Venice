@@ -18,6 +18,7 @@ set(SRC_FILES
     src/Game.cpp
     src/AI.cpp
     src/Board.cpp
+    src/ParticleSystem.cpp
 )
 
 # Include directories

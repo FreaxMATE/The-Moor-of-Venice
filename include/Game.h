@@ -5,6 +5,7 @@
 #include <SFML/Audio.hpp>
 #include "Board.h"
 #include "AI.h"
+#include "ParticleSystem.h"
 
 class Game {
 public:
@@ -50,6 +51,9 @@ private:
     int validMoves;
     int timeLimit;
     bool startWithWhite;
+
+    // Particle system for the welcome screen
+    ParticleSystem particleSystem;
 };
 
 #endif // GAME_H

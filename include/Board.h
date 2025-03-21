@@ -7,8 +7,8 @@
 class Board {
 public:
     Board(int width, int height);
-    Board(const Board& other); // Copy constructor
-    Board& operator=(const Board& other); // Copy assignment operator
+    Board(const Board& other);
+    Board& operator=(const Board& other);
     ~Board();
 
     void draw(sf::RenderWindow &window);
@@ -16,23 +16,30 @@ public:
     int getWidth() const;
     int getHeight() const;
     int getCell(int x, int y) const;
-    void setColorInvert(bool invertupdate);
     void setCell(int x, int y, int value);
-    void setSize(int width, int height);
+    void setColorInvert(bool invertupdate);
+    void setSize(int newWidth, int newHeight);
+    void updateCellSize();
     float getCellSize() const;
+    bool isOnBoard(int x, int y) const;
+    std::vector<std::pair<int, int>> getFlips(int x, int y, int player) const;
     bool isValidMove(int x, int y, int player) const;
     void applyMove(int x, int y, int player);
     void highlightValidMoves(sf::RenderWindow &window, int player);
 
 private:
-    int width, height;
-    bool invert = false; // whether to invert color
+    int width;
+    int height;
     float cellSize;
     std::vector<std::vector<int>> board_array;
     sf::RectangleShape cellShape;
-    void updateCellSize();
-    bool isOnBoard(int x, int y) const;
-    std::vector<std::pair<int, int>> getFlips(int x, int y, int player) const;
+    bool invert = false;
+
+    // Animation-related members
+    sf::Clock animationClock;
+    bool isAnimating = false;
+    std::vector<std::pair<int, int>> animatedCells;
+    int animationPlayer;
 };
 
 #endif // BOARD_H

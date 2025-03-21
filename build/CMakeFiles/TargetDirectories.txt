@@ -1,3 +1,0 @@
-/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles/MyGame.dir
-/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles/edit_cache.dir
-/home/kunruh/src/The-Moor-of-Venice/build/CMakeFiles/rebuild_cache.dir

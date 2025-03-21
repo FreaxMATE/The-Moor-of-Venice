@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "ParticleSystem.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <filesystem>
@@ -19,6 +20,12 @@ int getRandomInt(int min, int max) {
 // Function to generate a square wave
 sf::Int16 generateSquareWave(double frequency, int sampleRate, int sampleIndex) {
     return (sampleIndex % static_cast<int>(sampleRate / frequency) < static_cast<int>(sampleRate / frequency) / 2) ? 30000 : -30000;
+}
+
+// Function to generate a sawtooth wave
+sf::Int16 generateSawtoothWave(double frequency, int sampleRate, int sampleIndex, int amplitude) {
+    double period = sampleRate / frequency;
+    return static_cast<sf::Int16>(amplitude * (2.0 * (sampleIndex / period - std::floor(sampleIndex / period + 0.5))));
 }
 
 // Function to generate noise
@@ -54,7 +61,20 @@ std::string getAssetsPath() {
     return path.parent_path().parent_path().string() + "/assets/";
 }
 
-Game::Game(int boardSize, int timeLimit, bool startWithWhite) : window(sf::VideoMode(800, 800), "Othello"), board(boardSize, boardSize), ai(), isPlayerTurn(true), gameState(GameState::StartMenu), boardSize(8), playerScore(0), aiScore(0), validMoves(0), timeLimit(200), startWithWhite(true) {
+Game::Game(int boardSize, int timeLimit, bool startWithWhite)
+    : window(sf::VideoMode(800, 800), "Othello"),
+      board(boardSize, boardSize),
+      ai(),
+      isPlayerTurn(true),
+      gameState(GameState::StartMenu),
+      boardSize(8),
+      playerScore(0),
+      aiScore(0),
+      validMoves(0),
+      timeLimit(200),
+      startWithWhite(true),
+      particleSystem(500) { // Initialize particle system with 1000 particles
+
     if (!font.loadFromFile(getAssetsPath() + "fonts/Cave-Story.ttf")) {
         std::cerr << "Failed to load font 'Cave-Story.ttf'" << std::endl;
         exit(EXIT_FAILURE);
@@ -133,10 +153,20 @@ Game::Game(int boardSize, int timeLimit, bool startWithWhite) : window(sf::Video
         {500, 300, 400, 500, 300, 400, 500, 300, 400, 500, 300, 400, 500, 300, 400, 500}
     };
 
-    // Choose a random melody
+    const std::vector<std::vector<double>> brassMelodies = {
+        {392.00, 349.23, 440.00, 392.00, 523.25, 440.00, 349.23, 392.00},
+        {440.00, 392.00, 349.23, 440.00, 392.00, 523.25, 440.00, 349.23},
+        {349.23, 392.00, 440.00, 349.23, 392.00, 440.00, 523.25, 392.00}
+    };
+
+    // Choose a random melody for the main instrument
     int melodyIndex = getRandomInt(0, melodies.size() - 1);
     const std::vector<double>& frequencies = melodies[melodyIndex];
     const std::vector<int>& chosenDurations = durations[melodyIndex];
+
+    // Choose a random melody for the brass instrument
+    int brassMelodyIndex = getRandomInt(0, brassMelodies.size() - 1);
+    const std::vector<double>& brassFrequencies = brassMelodies[brassMelodyIndex];
 
     const int sampleRate = 44100;
     const int amplitude = 30000;
@@ -144,18 +174,23 @@ Game::Game(int boardSize, int timeLimit, bool startWithWhite) : window(sf::Video
 
     for (size_t i = 0; i < frequencies.size(); ++i) {
         int noteDuration = sampleRate * chosenDurations[i] / 1000;
+        int brassNoteDuration = sampleRate * chosenDurations[i] / 1000;
         for (int j = 0; j < noteDuration; ++j) {
             // Combine keys (sine wave), bass (square wave), and drums (noise)
             sf::Int16 sample = amplitude * sin(2 * M_PI * frequencies[i] * j / sampleRate) / 6; // Keys
             sample += generateSquareWave(frequencies[i] / 2, sampleRate, j) / 6; // Bass
             if (j % (sampleRate / 4) < sampleRate / 100) {
-                sample += generateBassDrum(sampleRate, j) / 2; // Bass drum
+            sample += generateBassDrum(sampleRate, j) / 2; // Bass drum
             }
             if (j % (sampleRate / 2) < sampleRate / 100) {
-                sample += generateSnareDrum(sampleRate, j) / 2; // Snare drum
+            sample += generateSnareDrum(sampleRate, j) / 2; // Snare drum
             }
             if (j % (sampleRate / 8) < sampleRate / 100) {
-                sample += generateHiHat(sampleRate, j) / 2; // Hi-hat
+            sample += generateHiHat(sampleRate, j) / 2; // Hi-hat
+            }
+            if (j < brassNoteDuration) {
+            sf::Int16 brassSample = generateSawtoothWave(brassFrequencies[i] * 0.9, sampleRate, j, amplitude) / 6; // Brass with slightly lower pitch
+            sample += brassSample; // Mix brass sample with existing sample
             }
             samples.push_back(sample);
         }
@@ -166,8 +201,8 @@ Game::Game(int boardSize, int timeLimit, bool startWithWhite) : window(sf::Video
     }
 
     if (!buffer.loadFromSamples(samples.data(), samples.size(), 1, sampleRate)) {
-        std::cerr << "Failed to load sound buffer" << std::endl;
-        exit(EXIT_FAILURE);
+    std::cerr << "Failed to load sound buffer" << std::endl;
+    exit(EXIT_FAILURE);
     }
 
     sound.setBuffer(buffer);
@@ -217,11 +252,17 @@ void Game::update() {
         checkGameOver();
     }
     updateScoresAndMoves();
+
+    // Update particle system
+    if (gameState == GameState::StartMenu) {
+        particleSystem.update(0.016f); // Assuming 60 FPS, so 1/60 ≈ 0.016
+    }
 }
 
 void Game::render() {
     window.clear();
     if (gameState == GameState::StartMenu) {
+        particleSystem.render(window); // Render the particle system
         showStartMenu();
     } else if (gameState == GameState::Playing) {
         board.draw(window);

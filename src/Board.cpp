@@ -29,16 +29,39 @@ Board::~Board() {};
 
 // Draw the board on the given window
 void Board::draw(sf::RenderWindow &window) {
+    sf::Time elapsed = animationClock.getElapsedTime();
+    float animationProgress = elapsed.asSeconds() / 0.5f; // 0.5 seconds for the animation
+
     for (int x = 0; x < width; ++x) {
         for (int y = 0; y < height; ++y) {
             cellShape.setPosition(x * cellSize, y * cellSize); // Set the position of the cell shape
-            switch (board_array[x][y]) {
-                case 1: cellShape.setFillColor(!invert ? sf::Color::White : sf::Color::Black); break; // White for player 1
-                case -1: cellShape.setFillColor(!invert ? sf::Color::Black : sf::Color::White); break; // Black for player -1
-                default: cellShape.setFillColor(sf::Color(128, 0, 32)); break; // Burgundy red for empty cells
+
+            if (isAnimating && std::find(animatedCells.begin(), animatedCells.end(), std::make_pair(x, y)) != animatedCells.end()) {
+                // Animate the cell color
+                sf::Color startColor = (animationPlayer == 1) ? sf::Color::Black : sf::Color::White;
+                sf::Color endColor = (animationPlayer == 1) ? sf::Color::White : sf::Color::Black;
+                sf::Color currentColor(
+                    static_cast<sf::Uint8>(startColor.r * (1.0f - animationProgress) + endColor.r * animationProgress),
+                    static_cast<sf::Uint8>(startColor.g * (1.0f - animationProgress) + endColor.g * animationProgress),
+                    static_cast<sf::Uint8>(startColor.b * (1.0f - animationProgress) + endColor.b * animationProgress),
+                    static_cast<sf::Uint8>(startColor.a * (1.0f - animationProgress) + endColor.a * animationProgress)
+                );
+                cellShape.setFillColor(currentColor);
+            } else {
+                // Set the cell color based on the board state
+                switch (board_array[x][y]) {
+                    case 1: cellShape.setFillColor(!invert ? sf::Color::White : sf::Color::Black); break; // White for player 1
+                    case -1: cellShape.setFillColor(!invert ? sf::Color::Black : sf::Color::White); break; // Black for player -1
+                    default: cellShape.setFillColor(sf::Color(128, 0, 32)); break; // Burgundy red for empty cells
+                }
             }
+
             window.draw(cellShape); // Draw the cell shape on the window
         }
+    }
+
+    if (isAnimating && animationProgress >= 1.0f) {
+        isAnimating = false;
     }
 }
 
@@ -138,6 +161,13 @@ void Board::applyMove(int x, int y, int player) {
     for (const auto& flip : flips) {
         board_array[flip.first][flip.second] = player;
     }
+
+    // Trigger animation
+    animatedCells = flips;
+    animatedCells.push_back({x, y});
+    animationPlayer = player;
+    animationClock.restart();
+    isAnimating = true;
 }
 
 // Highlight the valid moves for the player on the given window
