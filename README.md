@@ -1,33 +1,75 @@
-# Build
+# The Moor of Venice
+
+Welcome to **The Moor of Venice**! This README will guide you through the process of setting up, building, and running the game.
+## Description
+
+**The Moor of Venice** is an immersive Othello game set in the historical city of Venice. Players will engage in strategic gameplay to outmaneuver their opponents and dominate the board.
+
+## Features
+
+- Rich, historical theme
+- Strategic gameplay
+- Stunning graphics
+- Engaging AI opponents
+
+![Screenshot of The Moor of Venice](screenshot.png)
 
 ## Dependencies
 
- - SFML
- - CMake
+To build and run the game, you need the following dependencies:
 
-Install dependencies on Ubuntu 24.04
+- SFML
+- CMake
+
+### Install Dependencies on Ubuntu 24.04
+
+Use the following command to install the necessary dependencies:
+
 ```bash
 sudo apt install git make g++ libsfml-dev cmake
 ```
 
-## Compile and run game
-```bash
-mkdir build
-cd build
-cmake ..
-make
-./MyGame
-```
+## Build and Run the Game
 
-## Debug
-For debugging run cmake like this
+Follow these steps to compile and run the game:
+
+1. Create a build directory:
+    ```bash
+    mkdir build
+    cd build
+    ```
+
+2. Generate the build files using CMake:
+    ```bash
+    cmake ..
+    ```
+
+3. Compile the game:
+    ```bash
+    make
+    ```
+
+4. Run the game:
+    ```bash
+    ./MyGame
+    ```
+
+## Debugging
+
+To enable debugging, run CMake with the following option:
+
 ```bash
 cmake -DCMAKE_BUILD_TYPE=Debug ..
 ```
 
-## Nix
-Setup development environment based on the flake.nix
+## Nix Development Environment
+
+If you are using Nix, you can set up the development environment based on the `flake.nix` file:
 
 ```bash
 nix develop
 ```
+
+Enjoy playing **The Moor of Venice**!
+
+
