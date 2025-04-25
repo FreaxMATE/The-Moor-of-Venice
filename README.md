@@ -3,7 +3,7 @@
 Welcome to **The Moor of Venice**! This README will guide you through the process of setting up, building, and running the game.
 ## Description
 
-**The Moor of Venice** is an immersive Othello game set in the historical city of Venice. Players will engage in strategic gameplay to outmaneuver their opponents and dominate the board.
+**The Moor of Venice** is an immersive and captivating strategy game inspired by the timeless classic, Othello. Step into a world of rich history and challenge your tactical skills as you outwit opponents, claim territory, and dominate the board in a battle of wits and strategy.
 
 ## Features
 
